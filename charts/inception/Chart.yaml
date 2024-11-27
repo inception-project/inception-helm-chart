@@ -1,0 +1,23 @@
+apiVersion: v2
+name: inception
+description: A semantic annotation platform offering intelligent assistance and knowledge management.
+home: https://inception-project.github.io
+sources:
+  - https://github.com/inception-project/inception
+
+maintainers:
+  - name: reckart
+    email: richard.eckart@gmail.com
+    url: https://github.com/reckart
+
+kubeVersion: ">=v1.24.0-0"
+version: 1.0.0-alpha11
+appVersion: "33.3"
+
+# Using Bitnami MariaDB chart as Inception's DB backend
+dependencies:
+- name: mariadb
+  alias: mariadb
+  condition: mariadb.enabled
+  version: "19.0.5"
+  repository: "oci://registry-1.docker.io/bitnamicharts"
